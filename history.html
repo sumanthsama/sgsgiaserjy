@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+       /* Top Section with Two Logos and Title */
+       .top-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+        }
+        .top-section img {
+            height: 125px;
+        }
+        .title-section {
+            text-align: center;
+            flex-grow: 1;
+        }
+        .title-section h1 {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+        .title-section p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #011e42;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 18px; /* header menu gap */
+            margin: 0;
+        }
+        .menu li {
+            display: inline;
+            position: relative;
+        }
+        .menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px; /* Decreased font size */
+            padding: 8px 12px;
+            transition: 0.3s;
+        }
+        .menu li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Menu */
+        .menu li ul {
+            display: none;
+            position: absolute;
+            background-color: #002D62;
+            top: 100%;
+            left: 0;
+            width: 350px; /* Increased width */
+            padding: 20px 15px; /* Increased padding */
+            list-style: none;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .menu li:hover ul {
+            display: block;
+        }
+        .menu li ul li {
+            padding: 15px 25px; /* Increased padding */
+            margin-bottom: 10px; /* Increased margin */
+        }
+        .menu li ul li a {
+            font-size: 14px; /* Dropdown menu size  */
+            padding: 10px 15px; /* Increased padding */
+        }
+        .menu li ul li a:hover {
+            background-color: #000;
+        }
+
+        /* Responsive Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #002D62;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            .menu li {
+                padding: 10px 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .menu.active {
+                display: flex;
+            }
+            /* Mobile Dropdown */
+            .menu li ul {
+                position: static;
+                display: none;
+                width: 100%;
+                justify-content: center;
+            }
+            .menu li.active ul {
+                display: block;
+            }
+        }
+
+        /* mattercss */
+
+
+#history {
+    background-color: #f9f9f9;
+    padding: 40px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#history h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#history h3, #history h4 {
+    color: #444;
+    margin-top: 20px;
+}
+
+#history p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+#history ul {
+    padding-left: 20px;
+}
+
+#history ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+#history em {
+    font-size: 18px;
+    color: #222;
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+
+         /* Footer */
+         .footer {
+            background-color: #011e42;
+            color: white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-right: 50px;
+        }
+        .footer-logo img {
+            height: 120px;
+            margin-bottom: 10px;
+        }
+        .footer-menu {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+        }
+        .footer-menu h2, .footer-social h2 {
+            width: 100%;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .footer-menu div, .footer-social div {
+            flex: 1;
+            min-width: 150px;
+        }
+        .footer-menu li, .footer-social li {
+            margin-bottom: 5px;
+        }
+        .footer-menu li a, .footer-social li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-menu li a:hover, .footer-social li a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .footer-left {
+                align-items: center;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .footer-menu, .footer-social {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Section with Logos and Title -->
+<div class="top-section">
+    <img src="clglogo.jpg" alt="Left Logo">
+    <div class="title-section">
+        <h1>SGSGIASE</h1>
+        <p>Tagline or additional text under the title</p>
+    </div>
+    <img src="ap-emblem.avif" alt="Right Logo">
+    <ul>
+    <p>Phone:- 9502924662</p>
+    <p>Email:- 123456789@gmail</p>
+    <p>Tagline or additional text under the title</p>
+    </ul>
+</div>
+
+<!-- Navigation Header -->
+<header>
+    <button class="menu-toggle">☰</button>
+    <nav class="menu-container">
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="menu-item-dropdown">
+                <a href="about.html">About Us</a>
+                <ul>
+                    <li><a href="history.html">History</a></li><br><br>
+                    <li><a href="visionandmission.html">Vision and Mission</a></li><br><br>
+                    <li><a href="UGC2(f).html">UGC 2(f)</a></li><br><br>
+                    <li><a href="CPEandAutonmyCertificate.html">CPE and Autonomy Certificate</a></li><br>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="admissions.html">Admissions</a>
+                <ul>
+                    <li><a href="#">Teaching Staff</a></li><br><br>
+                    <li><a href="#">Non-Teaching Staff</a></li><br><br>
+                    <li><a href="#">Orgonogram</a></li><br><br>
+                    <li><a href="#">Finance</a></li><br><br>
+                    <li><a href="#">College Committees</a></li><br><br>
+                    <li><a href="#">Alumni Association Meeting Reports</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="academics.html">Academics</a>
+                <ul>
+                    <li><a href="#">Academic Calendar</a></li><br><br>
+                    <li><a href="#">UG Programmes</a></li><br><br>
+                    <li><a href="#">Outcomes</a></li><br><br>
+                    <li><a href="#">LMS/e-tools designed by staff</a></li>
+                </ul>
+            </li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li class="menu-item-dropdown">
+                <a href="infrastructure.html">Infrastructure</a>
+                <ul>
+                    <li><a href="#">e-Resources</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="studentsupport.html">Student Support</a>
+                <ul>
+                    <li><a href="#">WEC</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="IQAC.html">IQAC</a>
+                <ul>
+                    <li><a href="#">About IQAC</a></li><br><br>
+                    <li><a href="#">AQARS</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="bestpractices.html">Best Practices</a>
+                <ul>
+                    <li><a href="#">Code of Conduct Handbook</a></li>
+                </ul>
+            </li>
+            <li><a href="examinationcell.html">Examination Cell</a></li>
+            <li><a href="RTI.html">RTI</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li class="menu-item-more">
+                <a href="#">More</a>
+                <ul>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Main Content -->
+<section id="history">
+    <div class="container">
+        <h2>History of S.G.S. Government Institute of Advanced Study in Education</h2>
+        <h3>The Genesis: Foundation of Excellence (1853 - 1883)</h3>
+
+        <div class="timeline">
+            <div class="event">
+                
+                <p>The history of S.G.S. Government Institute of Advanced Study in Education (S.G.S. G.I.A.S.E.) dates back to 1853, when the Mission Framing School was established in Madras under the Madras Education Department. This marked the beginning of a structured approach to teacher education in the region. The institution began with the vision to train teachers and strengthen the education system in the Madras Presidency.
+
+                    In 1883, the foundation stone for teacher education in Rajahmundry was laid with the establishment of the Local Fund Elementary Normal School, which catered to the training of teachers for elementary education.</p>
+            </div>
+            
+            <div class="event">
+                <h2>Milestone Achievements Over the Decades</h2>
+                <h3>1887: Upgradation to Secondary Normal School</h3>
+                <p>To meet the growing demand for trained educators, the Elementary Normal School was upgraded to a Secondary Normal School. This upgrade allowed the institution to extend its focus to training teachers for secondary-level education, marking a significant step forward in its journey of educational empowerment.</p>
+            </div>
+            
+            <div class="event">
+                <h3>1894: Establishment of Government Training College</h3>
+                <p>In 1894, the institution became known as the Government Training College in Rajahmundry. It began offering the Licentiate in Teaching (L.T.) course, positioning the institution as a hub for advanced teacher education in the region.
+                    <ul>
+
+                   <li>Key Contributors: Visionaries such as Dr. Duncan and Hon’ble Mr. Raghunadha Rao played crucial roles in the development of the institution during this period.</p>
+                    </div>
+            </div>
+            
+            <div class="event">
+                <h3>1928: Replacement of L.T. Course with B.Ed Program</h3>
+                <p>As part of an ongoing effort to elevate the quality of teacher education, the L.T. course was replaced by the Bachelor of Education (B.Ed) program. This transition enabled the institution to align with modern educational standards and better prepare teachers for the evolving classroom needs</p>
+            </div>
+            
+            <div class="event">
+                <h3>1956: Celebrating the Platinum Jubilee</h3>
+                <p>In 1956, the institute proudly celebrated its 75th Anniversary. This milestone underscored its enduring legacy and the significant contributions it had made to the field of teacher education over the years.</p>
+            </div>
+            
+            <div class="event">
+                <h3>1959: Transformation into G.I.A.S.E.</h3>
+                <p>Following the recommendations of the Kothari Commission, the institution was elevated to the status of Government Institute of Advanced Study in Education (G.I.A.S.E.) in 1959. This transformation reflected the institute's broadened mission, including:</p>
+                <ul>
+
+                    <li>Training for both pre-service and in-service teachers.
+                    
+                    <li>Initiating research programs aimed at advancing educational practices.
+                    
+                    <li>Developing new methodologies for improving teaching and learning.<br>
+                </ul>        
+            </div>
+        </div>
+        
+        <h2>Key Developments in Teacher Education</h2>
+        <ul>
+            <li>1932: Achieved Permanent Affiliation to Andhra University.</li>
+            <li>1947: Training for Telugu Pandits was initiated.</li>
+            <li>1950: B.Ed course was reorganized.</li>
+            <li>1954: M.Ed program was introduced.</li>
+            <li>1958: Multipurpose School was established.</li>
+        </ul>
+
+        <h2>Modern Contributions and Leadership</h2>
+        <p>The leadership of S.G.S. G.I.A.S.E. has been a driving force behind its success. From the initial pioneers to the present-day educators, the institute's leadership has been committed to shaping the future of education in the country.
+
+            In recent years, the institute has focused on:</p>
+            <ul>
+                <li>Conducting cutting-edge research to influence educational reforms.
+                <li>Developing highly qualified educators who excel in their teaching careers.
+                <li>Actively participating in national education policy discussions to ensure that teacher education adapts to modern needs.
+            </ul>
+        
+        <h2>A Timeline of Key Events</h2>
+        <h3>Year Milestone:</h3>
+        <ul>
+            <li>AD 1853 - Mission Framing School, Madras:
+                <p>The foundation of teacher education in the region began with the establishment of the Mission Framing School under the Madras Education Department.</p>
+                <li>1856 - Government Normal School, Madras:
+                <p>The Government Normal School was founded in Madras, focusing on training teachers for primary and secondary education.</p>
+                <li>1883 - Local Fund Elementary Normal School, Rajahmundry:
+                <p>The Local Fund Elementary Normal School was established in Rajahmundry, initiating formal teacher training in the region.</p>
+                <li>1892 - Government Secondary Normal School, Rajahmundry:
+                <p>This institution was established to provide advanced teacher training for secondary education teachers.</p>
+                <li>1894 - Government Training College, Rajahmundry:
+                <p>The Government Training College was founded to provide structured teacher education programs.</p>
+                <li>1900 - New College Building Constructed:
+                <p>A new college building was erected to accommodate the growing number of teacher trainees.</p>
+                <li>1911 - LT Classes Moved to Teachers College, Saidapet:
+                <p>The Lower Training (LT) classes were relocated to the Teachers College in Saidapet, offering better facilities for teacher training.</p>
+                <li>1914 - Removal of Training Departments:
+                <p>Several training departments, including Upper Secondary, Higher Elementary, and Lower Elementary, were shifted to streamline teacher education in the region.</p>
+                <li>1917 - Rajahmundry Training College Reopened:
+                <p>The Rajahmundry Training College was reopened to continue its role in nurturing teacher education.</p>
+                <li>1919 - Model School Started:
+                <p>A model school was established to offer practical training for teacher trainees, allowing them to gain hands-on experience.</p>
+                <li>1926 - Andhra University Established:
+                <p>Andhra University was established, which later played a significant role in supporting teacher education programs.</p>
+                <li>1928 - LT Course Replaced by B.Ed Program:
+                <p>The LT (Licentiate in Teaching) course was replaced with the Bachelor of Education (B.Ed) program to provide more comprehensive teacher training.</p>
+                <li>1930 - Students Hostel Started:
+                <p>A hostel was created for students, especially those from out of town, ensuring accommodation during their teacher training.</p>
+                <li>1932 - Permanent Affiliation to Andhra University:
+                <p>The institution gained permanent affiliation to Andhra University, further enhancing its educational standing.</p>
+                <li>1934 - Practical Test in Teaching for B.Ed Introduced:
+                <p>A practical teaching test was introduced for B.Ed students to ensure that they gained real-world teaching experience.</p>
+                <li>1947 - Telugu Pandits Training Started:
+                <p>Training for Telugu Pandits was introduced, addressing the demand for regional language education.</p>
+                <li>1949 - Shortened B.Ed Course Introduced:
+                <p>A shorter B.Ed course was introduced for those looking for an accelerated path to become qualified teachers.</p>
+                <li>1950 - B.Ed Course Reorganized:
+                <p>The B.Ed course was reorganized to improve the quality of teacher education and provide a more structured curriculum.</p>
+                <li>1954 - M.Ed Course Started:
+                <p>The Master of Education (M.Ed) course was introduced to offer advanced training for educators seeking further specialization.</p>
+                <li>1955 - Extension Services Department Started:
+                <p>The Extension Services Department was set up to provide educational outreach and community development programs.</p>
+                <li>1958 - Multipurpose School Established:
+                <p>A multipurpose school was set up to provide real-world classroom experiences for teacher trainees.</p>
+                <li>1964 - Government College of Education Established:
+                <p>The Government College of Education was founded to further the cause of teacher education in the region.</p>
+                <li>1970 - Science Teachers Workshop Started:
+                <p>A specialized workshop for science teachers was launched to improve teaching methodologies in the subject.</p>
+                <li>1971 - Shortened B.Ed Course Abolished:
+                <p>The shortened B.Ed course was abolished, and a more detailed and comprehensive B.Ed program was reintroduced.</p>
+        </ul>
+        
+        <h3>Preserving History, Shaping the Future</h3>
+        <p>S.G.S. G.I.A.S.E. stands as a beacon of educational excellence, continually evolving to meet the demands of the modern education system. The institute remains steadfast in its mission to uphold its legacy of empowering educators while embracing innovation.
+
+            Join us as we celebrate the history of S.G.S. G.I.A.S.E., a journey of progress, and a vision that continues to inspire generations of teachers and students.</p>
+    </div>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-left">
+        <div class="footer-logo">
+            <img src="clglogo.jpg" alt="Footer Logo">
+        </div>
+    </div>
+    <ul class="footer-menu">
+        <h2>QUICK NAVIGATION</h2>
+        <div>
+            <li><a href="about.html">About</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="research.html">Research</a></li>
+        </div>
+        <div>
+            <li><a href="infrastructure.html">Infrastructure</a></li>
+            <li><a href="student-support.html">Student Support</a></li>
+            <li><a href="iqac.html">IQAC</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </div>
+    </ul>
+    <ul class="footer-social">
+        <h2>STAY CONNECTED</h2>
+        <div>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Youtube</a></li>
+        </div>
+    </ul>
+</footer>
+
+
+<script>
+    document.querySelector(".menu-toggle").addEventListener("click", function() {
+        document.querySelector(".menu").classList.toggle("active");
+    });
+
+    // Mobile dropdown for More and About Us
+    document.querySelectorAll(".menu-item-dropdown").forEach(function(item) {
+        item.addEventListener("click", function() {
+            this.classList.toggle("active");
+        });
+    });
+
+    document.querySelector(".menu-item-more").addEventListener("click", function() {
+        this.classList.toggle("active");
+    });
+</script>
+
+</body>
+</html>

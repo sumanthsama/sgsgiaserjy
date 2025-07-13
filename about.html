@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+       /* Top Section with Two Logos and Title */
+       .top-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+        }
+        .top-section img {
+            height: 125px;
+        }
+        .title-section {
+            text-align: center;
+            flex-grow: 1;
+        }
+        .title-section h1 {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+        .title-section p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: #011e42;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 18px; /* header menu gap */
+            margin: 0;
+        }
+        .menu li {
+            display: inline;
+            position: relative;
+        }
+        .menu li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px; /* Decreased font size */
+            padding: 8px 12px;
+            transition: 0.3s;
+        }
+        .menu li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Menu */
+        .menu li ul {
+            display: none;
+            position: absolute;
+            background-color: #002D62;
+            top: 100%;
+            left: 0;
+            width: 350px; /* Increased width */
+            padding: 20px 15px; /* Increased padding */
+            list-style: none;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .menu li:hover ul {
+            display: block;
+        }
+        .menu li ul li {
+            padding: 15px 25px; /* Increased padding */
+            margin-bottom: 10px; /* Increased margin */
+        }
+        .menu li ul li a {
+            font-size: 14px; /* Dropdown menu size  */
+            padding: 10px 15px; /* Increased padding */
+        }
+        .menu li ul li a:hover {
+            background-color: #000;
+        }
+
+        /* Responsive Menu */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #002D62;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+            .menu li {
+                padding: 10px 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .menu.active {
+                display: flex;
+            }
+            /* Mobile Dropdown */
+            .menu li ul {
+                position: static;
+                display: none;
+                width: 100%;
+                justify-content: center;
+            }
+            .menu li.active ul {
+                display: block;
+            }
+        }
+
+        /* .content {
+            padding: 100px;
+            text-align: center;
+        } */
+
+
+        /* new section under header in about us page */
+
+        .colored-section {
+            background-color: #063079; /* Gold color */
+            color: #fff; /* Black text */
+            text-align: left;
+            
+            padding: 15px 20px;
+        }
+        .colored-section h2 {
+            margin-bottom: 5px;
+            margin-left: 8%;
+            font-size: 22px;
+        }
+        .colored-section p {
+            font-size: 16px;
+            margin-left: 8%;
+        }
+
+        /* bodymatter */
+
+        #about-sgsgiase {
+    background-color: #f9f9f9;
+    padding: 40px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#about-sgsgiase h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#about-sgsgiase h3, #about-sgsgiase h4 {
+    color: #444;
+    margin-top: 20px;
+}
+
+#about-sgsgiase p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+#about-sgsgiase ul {
+    padding-left: 20px;
+}
+
+#about-sgsgiase ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+#about-sgsgiase em {
+    font-size: 18px;
+    color: #222;
+    display: block;
+    margin-top: 8px;
+    text-align: center;
+}
+
+
+
+        /* Footer */
+        .footer {
+            background-color: #011e42;
+            color: white;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        .footer-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-right: 50px;
+        }
+        .footer-logo img {
+            height: 120px;
+            margin-bottom: 10px;
+        }
+        .footer-menu {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+        }
+        .footer-menu h2, .footer-social h2 {
+            width: 100%;
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .footer-menu div, .footer-social div {
+            flex: 1;
+            min-width: 150px;
+        }
+        .footer-menu li, .footer-social li {
+            margin-bottom: 5px;
+        }
+        .footer-menu li a, .footer-social li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-menu li a:hover, .footer-social li a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .footer {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            .footer-left {
+                align-items: center;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .footer-menu, .footer-social {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Section with Logos and Title -->
+<div class="top-section">
+    <img src="clglogo.jpg" alt="Left Logo">
+    <div class="title-section">
+        <h1>SGSGIASE</h1>
+        <p>Tagline or additional text under the title</p>
+    </div>
+    <img src="ap-emblem.avif" alt="Right Logo">
+    <ul>
+    <p>Phone:- 9502924662</p>
+    <p>Email:- 123456789@gmail</p>
+    <p>Tagline or additional text under the title</p>
+    </ul>
+</div>
+
+
+<!-- Navigation Header -->
+<header>
+    <button class="menu-toggle">☰</button>
+    <nav class="menu-container">
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="menu-item-dropdown">
+                <a href="about.html">About Us</a>
+                <ul>
+                    <li><a href="history.html">History</a></li><br><br>
+                    <li><a href="visionandmission.html">Vision and Mission</a></li><br><br>
+                    <li><a href="UGC2(f).html">UGC 2(f)</a></li><br><br>
+                    <li><a href="CPEandAutonmyCertificate.html">CPE and Autonomy Certificate</a></li><br>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="admissions.html">Admissions</a>
+                <ul>
+                    <li><a href="#">Teaching Staff</a></li><br><br>
+                    <li><a href="#">Non-Teaching Staff</a></li><br><br>
+                    <li><a href="#">Orgonogram</a></li><br><br>
+                    <li><a href="#">Finance</a></li><br><br>
+                    <li><a href="#">College Committees</a></li><br><br>
+                    <li><a href="#">Alumni Association Meeting Reports</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="academics.html">Academics</a>
+                <ul>
+                    <li><a href="#">Academic Calendar</a></li><br><br>
+                    <li><a href="#">UG Programmes</a></li><br><br>
+                    <li><a href="#">Outcomes</a></li><br><br>
+                    <li><a href="#">LMS/e-tools designed by staff</a></li>
+                </ul>
+            </li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li class="menu-item-dropdown">
+                <a href="infrastructure.html">Infrastructure</a>
+                <ul>
+                    <li><a href="#">e-Resources</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="studentsupport.html">Student Support</a>
+                <ul>
+                    <li><a href="#">WEC</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="IQAC.html">IQAC</a>
+                <ul>
+                    <li><a href="#">About IQAC</a></li><br><br>
+                    <li><a href="#">AQARS</a></li>
+                </ul>
+            </li>
+            <li class="menu-item-dropdown">
+                <a href="bestpractices.html">Best Practices</a>
+                <ul>
+                    <li><a href="#">Code of Conduct Handbook</a></li>
+                </ul>
+            </li>
+            <li><a href="examinationcell.html">Examination Cell</a></li>
+            <li><a href="RTI.html">RTI</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li class="menu-item-more">
+                <a href="#">More</a>
+                <ul>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- new section under header for about us page  -->
+ 
+<div class="colored-section">
+    <h2>ABOUT US  |  SGSGIASE GOVERNMENT COLLEGE RAJAHMUNDRY</h2>
+    <p>GOVERNMENT COLLEGE OF TEACHER EDUCATION</p>
+</div>
+
+<!-- Main Content -->
+
+<section id="about-sgsgiase">
+    <h2>ABOUT SGSGIASE COLLEGE</h2>
+    <p><strong>S.G.S. Government Institute of Advanced Study in Education: Pioneering Teacher Education for Over a Century</strong></p>
+    
+    <p>S.G.S. Government Institute of Advanced Study in Education (S.G.S. G.I.A.S.E.), located in the vibrant city of Rajahmundry, is one of India's most historic and prestigious teacher training institutions. Established in 1883, our institute has been at the forefront of shaping educators, fostering innovation, and enriching communities through education.</p>
+    
+    <p>As the first teacher education institution in Andhra Pradesh, S.G.S. G.I.A.S.E. has stood as a beacon of excellence, earning recognition for its transformative contributions to teacher education and its unwavering commitment to nurturing future educators.</p>
+
+    <h3>Our History: A Journey of Transformation and Excellence</h3>
+    
+    <h4>Founding Years: Establishment of Elementary Normal School (1883)</h4>
+    <p>The journey began in 1883 with the establishment of the Elementary Normal School in Rajahmundry. It was founded to address the pressing need for trained teachers in Telugu-speaking regions, laying the foundation for quality education in Andhra Pradesh.</p>
+
+    <h4>Advancement to Secondary Normal School (1887)</h4>
+    <p>Recognizing the growing demand for advanced teacher training, the institute was upgraded to a Secondary Normal School in 1887. This milestone marked its evolution into a center for excellence in training educators for higher-level teaching roles.</p>
+
+    <h4>Introduction of Training College and Licentiate in Teaching (L.T.) Course (1894)</h4>
+    <p>In 1894, the institute transitioned into a Training College, offering the prestigious Licentiate in Teaching (L.T.) course. At that time, it was one of only two institutions in India to provide such advanced training.</p>
+
+    <h4>Evolution into Bachelor of Teaching (B.T.) Program (1928)</h4>
+    <p>The institute continued to grow in stature, replacing the L.T. course with the Bachelor of Teaching (B.T.) program in 1928. This move further enhanced the scope and quality of teacher education, preparing educators for a rapidly changing world.</p>
+
+    <h4>Platinum Jubilee Celebration (1956)</h4>
+    <p>In 1956, the institute celebrated its Platinum Jubilee, marking 75 years of dedication to teacher education. This grand occasion highlighted its achievements and contributions to the educational landscape of India.</p>
+
+    <h4>Transformation into G.I.A.S.E. (1959)</h4>
+    <p>Following the recommendations of the Kothari Commission, the institute was elevated to the Government Institute of Advanced Study in Education in 1959. This transformation expanded its focus beyond teacher training to include:</p>
+    <ul>
+        <li>Pre-service and In-service Teacher Training.</li>
+        <li>Research and Development in Education.</li>
+        <li>Innovative Teaching Methodologies.</li>
+    </ul>
+
+    <p>Today, S.G.S. G.I.A.S.E. continues to build on this legacy, preparing educators who are equipped to inspire, innovate, and lead.</p>
+
+    <h3>Our Vision and Mission</h3>
+    <h4>Vision</h4>
+    <p>To be a leading institution in teacher education, fostering holistic development and contributing to societal transformation through quality education.</p>
+
+    <h4>Mission</h4>
+    <ul>
+        <li>To provide state-of-the-art training for aspiring educators.</li>
+        <li>To promote research and innovation in the field of education.</li>
+        <li>To empower teachers to create meaningful and impactful learning environments.</li>
+    </ul>
+
+    <h3>Why Choose S.G.S. G.I.A.S.E.?</h3>
+    <ul>
+        <li><strong>Rich Heritage and Legacy:</strong> Over 140 years of pioneering teacher education.</li>
+        <li><strong>Comprehensive Training Programs:</strong> Pre-service and in-service training tailored to modern educational needs.</li>
+        <li><strong>Commitment to Excellence:</strong> A proven track record of producing skilled and dedicated educators.</li>
+        <li><strong>Focus on Research:</strong> Encouraging innovation and research in teaching methodologies.</li>
+        <li><strong>Community Impact:</strong> Shaping the future of education through social responsibility.</li>
+    </ul>
+
+    <h3>Message from the Institute</h3>
+    <p><em>“At S.G.S. Government Institute of Advanced Study in Education, we believe that education is the cornerstone of progress. Our mission is to shape educators who are not only equipped with knowledge and skills but also inspired to transform lives and build a better society.”</em></p>
+</section>
+
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-left">
+        <div class="footer-logo">
+            <img src="clglogo.jpg" alt="Footer Logo">
+        </div>
+    </div>
+    <ul class="footer-menu">
+        <h2>QUICK NAVIGATION</h2>
+        <div>
+            <li><a href="about.html">About</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="research.html">Research</a></li>
+        </div>
+        <div>
+            <li><a href="infrastructure.html">Infrastructure</a></li>
+            <li><a href="student-support.html">Student Support</a></li>
+            <li><a href="iqac.html">IQAC</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </div>
+    </ul>
+    <ul class="footer-social">
+        <h2>STAY CONNECTED</h2>
+        <div>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Youtube</a></li>
+        </div>
+    </ul>
+</footer>
+
+
+<script>
+    document.querySelector(".menu-toggle").addEventListener("click", function() {
+        document.querySelector(".menu").classList.toggle("active");
+    });
+
+    // Mobile dropdown for More and About Us
+    document.querySelectorAll(".menu-item-dropdown").forEach(function(item) {
+        item.addEventListener("click", function() {
+            this.classList.toggle("active");
+        });
+    });
+
+    document.querySelector(".menu-item-more").addEventListener("click", function() {
+        this.classList.toggle("active");
+    });
+</script>
+
+</body>
+</html>
