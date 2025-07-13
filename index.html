@@ -213,6 +213,33 @@
                 align-items: center;
             }
         }
+
+         /* Scrolling Text */
+        .scrolling-text {
+            width: 100%;
+            overflow: hidden;
+            background-color: #000;
+            color: #000;
+            padding: 8px 0;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .scrolling-text p {
+            white-space: nowrap;
+            display: inline-block;
+            animation: scroll-left 15s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 <body>
@@ -221,8 +248,8 @@
 <div class="top-section">
     <img src="clglogo.jpg" alt="Left Logo">
     <div class="title-section">
-        <h1>SGSGIASE</h1>
-        <p>Tagline or additional text under the title</p>
+        <h1>S.G.S.GOVERNMENT I.A.S.E</h1>
+        <p>RAJAMAHENDRAVARAM</p>
     </div>
     <img src="ap-emblem.avif" alt="Right Logo">
     <ul>
@@ -306,7 +333,9 @@
         </ul>
     </nav>
 </header>
-
+<div class="scrolling-text">
+    <p>This site is developed by S11SOLUTIONS</p>
+</div>
 <!-- Main Content -->
 <div class="content">
     <h2>Welcome to Our Website</h2>
